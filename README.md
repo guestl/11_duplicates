@@ -12,7 +12,7 @@ How yo run in Linux:
 
 ```#!bash
 
-$ python duplicates.py -mf d:\test
+$ python duplicates.py d:\test
 
 # possibly requires call of python3 executive instead of just python
 ```
@@ -20,9 +20,12 @@ $ python duplicates.py -mf d:\test
 Output example:
 
 ```
-python duplicates.py -mf d:\test
+python duplicates.py d:\test
 Scanning completed
-[['d:\\test\\111.docx', 'd:\\test\\444\\111.docx']]
+
+        Files with the same pair of file name and file size:
+d:\test\111.docx
+d:\test\444\111.docx
 ```
 
 There is no difference to run in Windows 
