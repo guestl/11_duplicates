@@ -18,6 +18,14 @@ def get_file_dictionary(dir_name):
     return result_list
 
 
+def get_duplicates(list_with_duplicates):
+    dup_list = collections.defaultdict(list)
+
+    for file_name_size_pair, full_file_name in file_list.items():
+        dup_list[full_file_name].append(file_name_size_pair)
+    return dup_list
+
+
 if __name__ == '__main__':
     # Look at command-line args
     parser = argparse.ArgumentParser(description='This script scans\
@@ -39,10 +47,7 @@ if __name__ == '__main__':
     else:
         exit("Folder '{}' must exists".format(folder_name))
 
-    dup_list = collections.defaultdict(list)
-
-    for file_name_size_pair, full_file_name in file_list.items():
-        dup_list[full_file_name].append(file_name_size_pair)
+    dup_list = get_duplicates(file_list)
 
     for dup_items in dup_list.values():
         if len(dup_items) > 1:
